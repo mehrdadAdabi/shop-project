@@ -1,0 +1,214 @@
+:root {
+    --mainColor: white;
+    --primaryTextColor: #81858b;
+    --txtColor: #212121;
+    --danger: #f44336;
+    --edit: #F9C74B;
+    --success: #44A278;
+    --hover: #2962ff;
+    --headFont: 15pt;
+    --txtfont: 13pt;
+    --border: 1px solid #dee2e6;
+    --transition: all ease-in-out 0.4s;
+    --headingFont: "iranYekan";
+}
+
+body {
+    direction: rtl;
+}
+
+@font-face {
+    font-family: "iranyekan";
+    src: url(../fonts/woff2/IRANYekanWebRegular.woff2);
+}
+
+html {
+    font-family: var(--headingFont)!important;
+}
+
+ul li {
+    list-style: none;
+}
+
+/* Main code */
+
+.container {
+    display: flow-root;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* icons */
+.icon::before,
+.txtIcon::after,
+.icon::after {
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    -webkit-mask-size: 23px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.icon.enterIcon::before {
+    -webkit-mask-image: url(../public/icons/enter.svg);
+    background-color: var(--txtColor);
+    rotate: 180deg;
+}
+
+.txtIcon.categoriesIcon::after {
+    -webkit-mask-image: url(../public//icons/mainIcon/categorize.svg);
+    background-color: var(--txtColor);
+    -webkit-mask-size: 20px;
+}
+
+.icon.searchBtn::before {
+    -webkit-mask-image: url(../public/icons/mainIcon/search.svg);
+    background-color: var(--primaryTextColor);
+}
+
+.icon.arrowIcon::after {
+    -webkit-mask-image: url(/_nuxt/public/icons/mainIcon/back.svg);
+    background-color: var(--primaryTextColor);
+}
+
+.icon.notif::before {
+    -webkit-mask-image: url(/_nuxt/public/icons/mainIcon/megaphone.svg);
+    margin-left: 5px;
+    -webkit-mask-size: 15pt;
+    background-color: var(--hover);
+}
+
+.icon.likeIcon::before {
+    -webkit-mask-image: url(../public/icons/mainIcon/Favorite.svg);
+    background-color: var(--primaryTextColor);
+}
+.icon.basketShopIcon::before {
+    -webkit-mask-image: url(../public/icons/mainIcon/shopping_cart.svg);
+    background-color: var(--primaryTextColor);
+}
+.icon.starIcon::before {
+    -webkit-mask-image: url(../public/icons/mainIcon/star.svg);
+    background-color: #f8b100;
+    vertical-align: bottom;
+}
+.icon.closeIcon::before{
+    -webkit-mask-image: url(../public/icons/mainIcon/close.svg);
+    background-color: var(--danger);
+}
+
+
+/* hover */
+
+a {
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+/* btn */
+
+.btn {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: max-content;
+    border: var(--border);
+    font-family: var(--headingFont);
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 10pt;
+}
+
+
+/* input size */
+input.w25 {
+    width: calc(25% - 10px);
+}
+
+input.w33 {
+    width: calc(33% - 10px);
+}
+
+input.w50 {
+    width: calc(50% - 10px);
+}
+
+input.w75 {
+    width: calc(75% - 10px);
+}
+
+input.w100 {
+    width: calc(100% - 10px);
+}
+
+.input {
+    background-color: #fff;
+    border: unset;
+    border-radius: 10px;
+    min-height: 50px;
+    font-size: 14px;
+    padding: 0 15px;
+    min-height: 50px;
+    box-sizing: border-box;
+    font-family: var(--headingFont);
+    outline: unset;
+}
+
+
+/* colors */
+.btn.info {
+    background-color: var(--hover);
+    color: var(--mainColor);
+}
+
+
+/* switch */
+
+.toggleParent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.toggle {
+    display: inline-block;
+    width: 33px;
+    height: 14px;
+    border-radius: 15px;
+    position: relative;
+    transition: var(--transition);
+    border: var(--border);
+}
+
+.checkBox {
+    display: none;
+}
+
+.toggleParent label.toggle::after {
+    content: "";
+    position: absolute;
+    background-color: var(--primaryTextColor);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(5px, -5px);
+    transition: var(--transition);
+}
+
+.checkBox:checked+.toggle::after {
+    background-color: var(--hover);
+    left: -3px;
+    transition: var(--transition);
+}
