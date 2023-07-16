@@ -3,11 +3,12 @@ import {ApiResponse, AppStatusCode} from "@/models/apiResponse";
 import { BASE_URL } from "~/utilities/Api"
 import {useauthStore} from "~/store/authStore";
 import {loginResultDTO} from "~/models/auth/successLogin";
+import {Base_URL} from "~/utilities/ApiConfig";
 
 
 export async function fetchApi<T>(url: string, config: FetchOptions = {}): Promise<ApiResponse<T>> {
     config = {
-        baseURL: BASE_URL, ...config,
+        baseURL: Base_URL, ...config,
     };
     const authStore=useauthStore()
     if (!config.headers){

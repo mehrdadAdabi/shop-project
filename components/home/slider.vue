@@ -1,8 +1,8 @@
 <template>
   <div class="main">
-      <Carousel>
+      <Carousel :autoplay="2000" wrapAround v-if="isShow">
         <Slide v-for="(item,index) in slider" :key="index">
-          <a class="carousel__item banner" :href="item.link">
+          <a class="carousel__item banner" >
               <img :src="getSliderURL(item.imageName)" :alt="item.imageName">
           </a>
         </Slide>
@@ -20,6 +20,12 @@ import {SliderDTO} from "~/models/home/homeDataDTO";
 import {getSliderURL} from "~/utilities/imageURL";
 
 const  props=defineProps<{slider:SliderDTO[] }>()
+const isShow=ref(false);
+onMounted(()=>{
+  setTimeout(()=>{
+    isShow.value=true;
+  },50)
+})
 
 </script>
 

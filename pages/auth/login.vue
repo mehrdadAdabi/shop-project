@@ -76,7 +76,6 @@ const loginFunc=async (data: any, FormEvent: any)=>{
   var result= await  loginUser(loginData.phoneNumber,loginData.password)
   loading.value=false;
   console.log(data,FormEvent,result)
-  debugger
   if (result.isSuccess) {
     localStorage.setItem("userData",JSON.stringify(result.data));
   }
