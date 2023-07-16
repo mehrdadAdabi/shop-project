@@ -1,20 +1,10 @@
 <template>
   <div class="main">
       <Carousel>
-        <Slide v-for="slide in 1" :key="slide">
-          <div class="carousel__item banner">
-              <img src="/./images/Banner/04.jpg">
-          </div>
-        </Slide>
-        <Slide v-for="slide in 1" :key="slide">
-          <div class="carousel__item banner">
-            <img src="/./images/Banner/02.jpg">
-          </div>
-        </Slide>
-        <Slide v-for="slide in 1" :key="slide">
-          <div class="carousel__item banner">
-            <img src="/./images/Banner/03.jpg">
-          </div>
+        <Slide v-for="(item,index) in slider" :key="index">
+          <a class="carousel__item banner" :href="item.link">
+              <img :src="getSliderURL(item.imageName)" :alt="item.imageName">
+          </a>
         </Slide>
         <template #addons>
           <Navigation />
@@ -24,9 +14,13 @@
   </div>
 </template>
 <script setup lang="ts">
-import { defineComponent } from 'vue'
 import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
+import 'vue3-carousel/dist/carousel.css';
+import {SliderDTO} from "~/models/home/homeDataDTO";
+import {getSliderURL} from "~/utilities/imageURL";
+
+const  props=defineProps<{slider:SliderDTO[] }>()
+
 </script>
 
 <style>

@@ -838,6 +838,8 @@
 import * as Yup from "yup"
 import { Form } from "vee-validate";
 import { fetchApi } from "utilities/customeFetchApi";
+import {useLazyAsyncData} from "#app";
+import {homePageContent} from "~/models/home/homeDataDTO";
 
 const isOpenModal = ref(false);
 const showMore = ref(false);

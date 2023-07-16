@@ -1,26 +1,5 @@
-export interface RootObject {
-    banners: Banner[];
-    sliders: Slider[];
-    latestProduct: LatestProduct[];
-    amazingProducts: LatestProduct[];
-}
-
-export interface LatestProduct {
-    id: number;
-    title: string;
-    slug: string;
-    inventoryId: number;
-    price: number;
-    discountPercentage: number;
-    imageName: string;
-    rate: string;
-    shopName: string;
-    commentCount: number;
-    totalPrice: number;
-}
-
-export interface Slider {
-    id: number;
+import {productCardDTO} from "~/models/productCardDTO";
+export interface SliderDTO {
     creationDate: string;
     title: string;
     link: string;
@@ -32,14 +11,23 @@ export interface Banner {
     creationDate: string;
     link: string;
     imageName: string;
-    position: number;
+    position: bannerPosition;
 }
 
 export enum bannerPosition{
-    بالای صفحه,
-    پایین صفحه,
-    سمت راست شگفت انگیز,
-    وسط صفحه,
+    زیر_اسلایدر=0,
+    سمت_چپ_اسلایدر=1,
+    بالای_اسلایدر=2,
+    سمت_راست_شگفت_انگیز=3,
+    وسط_صفحه=4,
 
+}
 
+// export HomePage Content
+
+export interface HomeDataDTO {
+    banner: Banner[];
+    lateProduct: productCardDTO[];
+    slider: SliderDTO[];
+    amazingProductDTO:productCardDTO[];
 }
