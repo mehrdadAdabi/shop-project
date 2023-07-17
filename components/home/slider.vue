@@ -45,26 +45,27 @@ onMounted(()=>{
 
 .carousel__prev{
   color: var(--mainColor);
-  left: 220px!important;
+  left: 0!important;
   transition: var(--transition);
 }
 
 .carousel__next {
   color: var(--mainColor);
-  right: 220px!important;
+  right:0!important;
   transition: var(--transition);
 
 }
 
 .crousel li{
   height: 100%;
+  width: unset;
   margin-top: 100px;
 }
 
 .carousel__pagination{
   position: absolute;
   right: 50%;
-  bottom: 30px;
+  bottom: 10px;
   gap: 4px;
 }
 
