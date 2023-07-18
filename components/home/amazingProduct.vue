@@ -1,22 +1,18 @@
 <template>
 <div class="selectPd">
   <div class="selectProduct">
-    <div class="product" v-for="(index,item) in product" :key="index">
+    <carousel v-model="currentSlide">
+    <Slide class="product" v-for="(item,index) in product" :key="index">
       <div class="pImage">
-        <img src="@/public/images/products/07.jpg" alt="">
+        <img :src="item.imageName" :alt="item.title">
       </div>
       <div>
         <NuxtLink class="title">
-          گوشی موبایل شیائومی مدل Mi 11i 5G
-          M2012K11G دو
-          سیم‌
-          کارت
-          ظرفیت
-          256 گیگابایت و 8 گیگابایت رم
+          {{item.title}}
         </NuxtLink>
         <span class="price">
-            <main>16,199,000</main>
-            <h2>15,900,000</h2>
+            <main class="discaount">{{item.price}}</main>
+            <h2 class="total">{{item.totalPrice}}</h2>
             <span>تومان</span>
         </span>
         <div class="optionBox">
@@ -24,21 +20,43 @@
           <span class="icon searchBtn"></span>
           <span class="icon likeIcon "></span>
           <span class="icon starIcon">
-                                  4.3
+                                  {{Number(item.rate).toFixed()}} ({{item.commentCount}})
           </span>
         </div>
       </div>
-    </div>
+    </Slide>
+      <template #addons="{ slidesCount }">
+        <div :class="['slider__Navigation right',{'disabled':currentSlide == slidesCount || currentSlide >= slidesCount - 3}]" @click="currentSlide+=1"></div>
+        <div :class="['slider__Navigation left',{'disabled':currentSlide == slidesCount || currentSlide < 1}]" @click="currentSlide-=1"></div>
+        <div class="slider__pagination" v-if="slide > 1">
+          <label v-for="item in slide" :class="{active:item == activeSlide}" :key="item" @click="currentSlide= item-1"></label>
+        </div>
+      </template>
+    </carousel>
   </div>
 </div>
 </template>
 <script setup lang="ts">
-
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
+import 'vue3-carousel/dist/carousel.css';
 import {productCardDTO} from "~/models/productCardDTO";
+import Slider from "~/components/home/slider.vue";
 
 const props=defineProps<{
   product:productCardDTO[],
 }>()
+const currentSlide=ref(0);
+const slide=Number((props.product.length / 3).toFixed());
+const activeSlide=ref(1);
+
+watch(currentSlide,(val)=>{
+  if (val==1){
+    activeSlide.value=1;
+    return;
+  }
+  activeSlide.value=Math.ceil(val/3);
+
+})
 
 </script>
 
@@ -57,7 +75,7 @@ const props=defineProps<{
 
   .selectPd .product {
     display: inline-block;
-    width: 200px;
+    width: 200px!important;
     max-height: 320px;
     background-color: var(--mainColor);
     box-sizing: border-box;
@@ -154,18 +172,7 @@ const props=defineProps<{
   overflow: hidden;
   }
 
-  .carousel__prev{
-  color: var(--mainColor);
-  left: 0!important;
-  transition: var(--transition);
-  }
 
-  .carousel__next {
-  color: var(--mainColor);
-  right:0!important;
-  transition: var(--transition);
-
-  }
 
   .crousel li{
   height: 100%;
@@ -173,10 +180,10 @@ const props=defineProps<{
   margin-top: 100px;
   }
 
-  .carousel__pagination{
+  .selectPd .carousel__pagination{
   position: absolute;
   right: 50%;
-  bottom: 10px;
+  bottom: -5px;
   gap: 4px;
   }
   .carousel__pagination-button{
@@ -188,4 +195,62 @@ const props=defineProps<{
   .carousel__pagination-button::after{
   content: unset;
   }
+
+  .carousel__track{
+    justify-content: center;
+  }
+
+  .carousel__viewport{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .slider__pagination{
+    display: flow-root;
+  }
+
+  .slider__pagination label{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 3px;
+    background-color: var(--mainColor);
+    cursor: pointer;
+  }
+
+  .slider__Navigation{
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    color: black;
+  }
+
+  .slider__Navigation::before,.slider__Navigation::before{
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 20px;
+    -webkit-mask-image: url(@/public/icons/mainIcon/arrow.svg);
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    background-color: var(--mainColor);
+    cursor: pointer;
+    -webkit-mask-size: 20px;
+  }
+
+  .slider__Navigation.right{
+    right: 10px;
+    rotate: 180deg;
+  }
+
+  .slider__Navigation.left{
+    left: 20px;
+  }
+
+  .disabled{
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
 </style>

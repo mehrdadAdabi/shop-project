@@ -13,14 +13,18 @@
       <img src="../public/images/theme/specials.png">
     </div>
     <div id="products">
-      <home-amazingProduct/>
+      <home-amazingProduct :product="data.data.amazingProducts"/>
     </div>
   </div>
+    <div id="categories">
+      <categories/>
+    </div>
 </template>
 
 <script setup lang="ts">
 import {fetchApi} from "~/utilities/customeFetchApi";
 import {BannerPosition, HomeDataDTO} from "~/models/home/homeDataDTO";
+import Categories from "~/components/home/categories.vue";
 const {pending,data}= await useAsyncData("main-page",()=>fetchApi<HomeDataDTO>("/Utilities/MainPageData"));
 console.log(data)
 </script>
@@ -91,13 +95,27 @@ console.log(data)
 #amazingBox #banner{
   display: inline-block;
   width: 100%;
-  height: 300px;
+  height: 370px;
 }
 
 #amazingBox #banner img{
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+/*categories*/
+
+#categories{
+  display: flow-root;
+  width: 100%;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #f8f8f8;
+  border: var(--border);
 }
 
 </style>
