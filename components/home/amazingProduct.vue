@@ -1,10 +1,10 @@
 <template>
 <div class="selectPd">
   <div class="selectProduct">
-    <carousel v-model="currentSlide">
+    <carousel v-model="currentSlide" :items-to-show="3">
     <Slide class="product" v-for="(item,index) in product" :key="index">
       <div class="pImage">
-        <img :src="item.imageName" :alt="item.title">
+        <img :src="getProductGalleryURL(item.imageName)" :alt="item.title">
       </div>
       <div>
         <NuxtLink class="title">
@@ -41,6 +41,7 @@ import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css';
 import {productCardDTO} from "~/models/productCardDTO";
 import Slider from "~/components/home/slider.vue";
+import {getProductGalleryURL} from "~/utilities/imageURL";
 
 const props=defineProps<{
   product:productCardDTO[],
@@ -204,11 +205,11 @@ watch(currentSlide,(val)=>{
     width: 80%;
     margin: 0 auto;
   }
-  .slider__pagination{
+  .selectPd .slider__pagination{
     display: flow-root;
   }
 
-  .slider__pagination label{
+ .selectPd .slider__pagination label{
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -218,14 +219,14 @@ watch(currentSlide,(val)=>{
     cursor: pointer;
   }
 
-  .slider__Navigation{
+  .selectPd .slider__Navigation{
     display: inline-block;
     position: absolute;
     top: 50%;
     color: black;
   }
 
-  .slider__Navigation::before,.slider__Navigation::before{
+  .selectPd .slider__Navigation::before,.slider__Navigation::before{
     content: "";
     display: inline-block;
     width: 15px;
@@ -238,12 +239,12 @@ watch(currentSlide,(val)=>{
     -webkit-mask-size: 20px;
   }
 
-  .slider__Navigation.right{
+ .selectPd .slider__Navigation.right{
     right: 10px;
     rotate: 180deg;
   }
 
-  .slider__Navigation.left{
+  .selectPd .slider__Navigation.left{
     left: 20px;
   }
 

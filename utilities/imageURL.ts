@@ -14,3 +14,7 @@ export const getProductGalleryURL=(imgUrl:string):string=>{
 export const getUserAvatarURL=(imgUrl:string):string=>{
     return `https://shop-api.codeyad-project.ir/images/users/avatar/${imgUrl}`;
 }
+
+export const getCategoriesImages=(imgUrl:string):string=>{
+    return `https://shop-api.codeyad-project.ir/images/categories/${imgUrl}`;
+}

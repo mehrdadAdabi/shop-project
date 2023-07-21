@@ -23,7 +23,6 @@ export enum BannerPosition{
 }
 
 // export HomePage Content
-
 export interface HomeDataDTO {
     banner: BannerDTO[];
     lateProduct: productCardDTO[];
