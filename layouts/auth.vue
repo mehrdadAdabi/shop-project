@@ -2,7 +2,9 @@
     <header>
         <h1>یکتا کالا</h1>
     </header>
+  <div class="authPanel">
     <slot />
+  </div>
 </template>
 <script setup lang="ts"></script>
 <style>
@@ -19,7 +21,7 @@ p {
 
 .parent {
     display: flow-root;
-    width: max-content;
+    width: 100%;
     margin: 20px auto 0;
 }
 
