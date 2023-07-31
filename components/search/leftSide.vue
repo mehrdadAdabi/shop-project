@@ -30,7 +30,7 @@
         <div class="selectPd">
             <div class="product" @click="isOpenModal = true">
                 <div class="pImage">
-                    <img src="../public/images/products/02.png" alt="">
+                    <img src="" alt="">
                 </div>
                 <div>
                     <NuxtLink class="title">
@@ -58,7 +58,7 @@
             </div>
             <div class="product">
                 <div class="pImage">
-                    <img src="../public/images/products/02.png" alt="">
+                    <img src="" alt="">
                 </div>
                 <div>
                     <NuxtLink class="title">
@@ -86,7 +86,7 @@
             </div>
             <div class="product">
                 <div class="pImage">
-                    <img src="../public/images/products/02.png" alt="">
+                    <img src="" alt="">
                 </div>
                 <div>
                     <NuxtLink class="title">
@@ -114,7 +114,7 @@
             </div>
             <div class="product">
                 <div class="pImage">
-                    <img src="../public/images/products/02.png" alt="">
+                    <img src="" alt="">
                 </div>
                 <div>
                     <NuxtLink class="title">
@@ -142,7 +142,7 @@
             </div>
             <div class="product">
                 <div class="pImage">
-                    <img src="../public/images/products/02.png" alt="">
+                    <img src="" alt="">
                 </div>
                 <div>
                     <NuxtLink class="title">
@@ -170,7 +170,7 @@
             </div>
             <div class="product">
                 <div class="pImage">
-                    <img src="../public/images/products/02.png" alt="">
+                    <img src="" alt="">
                 </div>
                 <div>
                     <NuxtLink class="title">
@@ -199,3 +199,12 @@
         </div>
     </div>
 </template>
+
+<style>
+
+.selectProduct{
+    display: inline-block;
+    margin: 0 15px;
+}
+
+</style>

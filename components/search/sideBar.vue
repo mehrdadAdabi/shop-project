@@ -1,7 +1,7 @@
 <template>
     <div class="advanceSearch">
         <div class="headImage">
-            <img src="../public/images/theme/free-shipping--banner.png" alt="">
+            <img src="" alt="">
             <div>
                 <h1>ارسال سفارش رایگان</h1>
                 <span>سفارش‌های بالای ۳۰۰ هزار تومان</span>
