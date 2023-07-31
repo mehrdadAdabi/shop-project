@@ -51,8 +51,9 @@
     </div>
     <div class="filterProduct">
         <search-sideBar/>
-        <div class="selectProduct">
-            <nav>
+        <search-leftSide/>
+        <!-- <div class="selectProduct"> -->
+            <!-- <nav>
                 <ol>
                     <li class="icon arrowIcon">
                         <NuxtLink>خانه</NuxtLink>
@@ -67,8 +68,8 @@
                         <NuxtLink>گوشی موبایل</NuxtLink>
                     </li>
                 </ol>
-            </nav>
-            <filter>
+            </nav> -->
+            <!-- <filter>
                 <span>مرتب سازی بر اساس:</span>
                 <ul>
                     <li>پربازدید ترین</li>
@@ -78,9 +79,9 @@
                     <li>ارزان ترین</li>
                     <li>گران ترین</li>
                 </ul>
-            </filter>
-            <div class="selectPd">
-                <div class="product" @click="isOpenModal = true">
+            </filter> -->
+            <!-- <div class="selectPd"> -->
+                <!-- <div class="product" @click="isOpenModal = true">
                     <div class="pImage">
                         <img src="../public/images/products/02.png" alt="">
                     </div>
@@ -106,8 +107,8 @@
                                 4.3
                             </span>
                         </div>
-                    </div>
-                </div>
+                    </div> -->
+                <!-- </div>
                 <div class="product">
                     <div class="pImage">
                         <img src="../public/images/products/02.png" alt="">
@@ -247,12 +248,13 @@
                             </span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </div> -->
+
+            <!-- </div> -->
+        <!-- </div> -->
     </div>
     <modal v-model="isOpenModal" />
-    <pagination />
+    <pagination />  
 </template>
 
 

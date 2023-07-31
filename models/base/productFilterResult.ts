@@ -1,6 +1,6 @@
 
 // دلیل ساختن این base این است که ما عوامل تکراری داخل صفحه داریم و دیگه لازم نباشه دائم داخل کوئری هامون بیاریم برای همین یکبار مینویسیم و بار دیگر ارث بری میکنیم ازش
-export interface baseFilterResult<T,Tparams> {
+export interface baseFilterResult<T> {
     entityCount: number;
     currentPage: number;
     pageCount: number;
@@ -8,5 +8,5 @@ export interface baseFilterResult<T,Tparams> {
     endPage: number;
     take: number;
     data:T[];
-    filterParams:Tparams;
+    // filterParams:Tparams;
 }
